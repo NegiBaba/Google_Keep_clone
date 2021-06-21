@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "./Heading";
+import notes from "../notes";
 import Note from "./Note";
 import Footer from "./Footer";
 
@@ -7,8 +8,12 @@ function App() {
   return (
     <div>
       <Heading />
-      <Note />
-      <Footer />{" "}
+      {notes.map((notes) => {
+        return (
+          <Note key={notes.key} title={notes.title} content={notes.content} />
+        );
+      })}
+      <Footer />
     </div>
   );
 }
